@@ -1,25 +1,40 @@
 Based on the [ancient
 work](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.133.9772&rep=rep1&type=pdf)
-of Chow and Liu, Chow-Liu is an OCaml module to train and evaluate
-probabilistic graphical models of binary observations (of fixed
-length).
+of Chow and Liu, Chow-Liu is an OCaml package to train and evaluate
+probabilistic graphical models over training sets of fixed-length
+binary observations.
 
-To install, clone this repository, then
+To install, clone this repository, then build:
 
 ```
 $ dune build
+```
+
+Inspect the training data:
+```
 $ head -n 4 data/train.csv
 0,0,0,0
 0,0,0,0
 0,0,0,1
 0,0,0,1
+```
+
+Build a model:
+```
 $ _build/default/src/cl.exe train -i data/train.csv -o /tmp/model
-# apply complete inference to test data
+```
+
+Inspect the test data:
+```
 $ head -n 4 data/test.csv
 0,0,0,0
 0,0,0,1
 0,0,1,0
 0,0,1,1
+```
+
+Evalute the model over the test data set:
+```
 $ _build/default/src/cl.exe complete -m /tmp/model -i data/test.csv -v
 1.037e-01 -2.266
 1.296e-01 -2.043
@@ -46,6 +61,7 @@ mean LL = -3.092156
 * [atdgen](https://opam.ocaml.org/packages/atdgen/), to encode/decode model files
 * [pringo](https://opam.ocaml.org/packages/pringo/), to randomly sample the generated distributions
 * [cmdliner](https://opam.ocaml.org/packages/cmdliner/), to parse the command line
+* [ocamlgraph](https://opam.ocaml.org/packages/ocamlgraph/), to build a spanning tree
 * [bitv](https://opam.ocaml.org/packages/bitv/), to compactly represents binary matrices
 
 # License
