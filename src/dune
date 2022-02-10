@@ -1,0 +1,4 @@
+(executable
+  (name cl)
+  (libraries pgm pringo cmdliner)
+)

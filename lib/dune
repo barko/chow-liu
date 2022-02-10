@@ -1,0 +1,15 @@
+(library
+  (name pgm)
+  (libraries cosovo atdgen ocamlgraph bitv))
+
+; model_t.ml
+(rule
+  (targets model_t.ml model_t.mli)
+  (deps model.atd)
+  (action (run atdgen -t %{deps})))
+
+; model_j.ml
+(rule
+ (targets model_j.ml model_j.mli)
+ (deps model.atd)
+ (action (run atdgen -j -j-std %{deps})))

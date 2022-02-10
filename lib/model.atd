@@ -1,0 +1,31 @@
+type cpd <ocaml predef module="Chow_liu.CPD" t="t"> = {
+  a : int;
+  (** index of variable [a] *)
+
+  b : int;
+  (** index of variable [b] *)
+
+  ?p_00 : float option;
+  (** log p(a=0|b=0); [None] if [p=0]. *)
+
+  ?p_10 : float option;
+  (** log p(a=1|b=0) = 1 - p(a=0|b=0). [None] if [p=0]. *)
+
+  ?p_01 : float option;
+  (** log p(a=0|b=1) *)
+
+  ?p_11 : float option;
+  (** log p(a=1|b=1) = log (1 - p(a=0|b-1)). [None] if [p=0]. *)
+}
+
+type cl <ocaml predef module="Chow_liu" t="t"> = {
+  root : int;
+  ?p_1 : float option;
+  (** log p(root=1) *)
+
+  ?p_0 : float option;
+  (** log p(root=0) = log (1 - p(root=1)) *)
+
+  cpds : cpd list
+}
+
