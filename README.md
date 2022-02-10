@@ -46,7 +46,7 @@ mean LL = -3.092156
 * [atdgen](https://opam.ocaml.org/packages/atdgen/), to encode/decode model files
 * [pringo](https://opam.ocaml.org/packages/pringo/), to randomly sample the generated distributions
 * [cmdliner](https://opam.ocaml.org/packages/cmdliner/), to parse the command line
-* [bitv]((https://opam.ocaml.org/packages/bitv/), to compactly represents binary matrices
+* [bitv](https://opam.ocaml.org/packages/bitv/), to compactly represents binary matrices
 
 # License
 
